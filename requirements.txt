@@ -1,0 +1,3 @@
+apache-airflow
+# apache-airflow[hive]=={AIRFLOW_VERSION}
+# apache-airflow[celery]=={AIRFLOW_VERSION}
