@@ -13,6 +13,9 @@ RUN  yum -y update && yum -y install \
                             nginx
 
 
+RUN wget https://downloads.apache.org/druid/0.21.0/apache-druid-0.21.0-bin.tar.gz && tar -xzf apache-druid-0.21.0-bin.tar.gz
+
+
 # ARG AIRFLOW_VERSION=2.0.2
 ARG AIRFLOW_PASSWORD=password
 COPY requirements.txt requirements.txt
