@@ -44,3 +44,7 @@ terraform.tfvars
 /test/tmp
 /test/version_tmp
 /tmp
+
+
+.azure.env
+sp_secret.json
