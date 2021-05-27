@@ -1,15 +1,26 @@
-# intouch-task
+# Playing With Azure Portal
 
-Task goal is to deploy and image with following specs
+## Goal
 
-1. Centos 8 as base image
-2. Image shall include Airflow, nginx and Druid Analytics
-3. Push image to Azure Container Registery
-4. Make azure pipeline to build and push images to the container, and to deploy the image on a VM.
-5. Give minimum requirements to a specific reviewer to review the code.
+1. CentOS image with airflow deployed on a subpath (localhost/airflow)
+2. Azure container registery for images.
+3. CI/CD for deploying image on container instance.
 
-# What is done?
+## Tools
 
-A simple terraspace project to manage cloud resources, docker image includes nginx, airflow both working and druid is broken.
+* Terrspace
+* Docker
+* Azure CLI
 
-The image is deployed on ACI not a VM, the pipelines used are github actions not azure pipeline (issue with latest azure pipelines that required sending mail to activate my free usage.)
+## Deploy
+
+To deploy full solution, you will need to have `.azure.env` comes from `.azure.env.sample`, to create cloud resources on azure via terraspace.
+
+Then via CLI run:
+
+``` bash
+source .azure.env
+cd azure && terraspace up dockerization
+```
+
+then run [SP Script](./service_principle.sh) to create a service account for github actions to automate pushing to ACR.
