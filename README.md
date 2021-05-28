@@ -11,6 +11,7 @@
 * Terrspace
 * Docker
 * Azure CLI
+* jq
 
 ## Deploy
 
