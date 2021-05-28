@@ -6,7 +6,9 @@ az ad sp create-for-rbac --scope $groupId --role Contributor --sdk-auth > sp_sec
 
 registryId=$(az acr show --name intouch --query id --output tsv)
 
+ClientId_in_SP_Secret=$(jq .clientId sp_secret.json)
+
 az role assignment create \
-  --assignee <ClientId_in_SP_Secret> \
+  --assignee $ClientId_in_SP_Secret \
   --scope $registryId \
   --role AcrPush
